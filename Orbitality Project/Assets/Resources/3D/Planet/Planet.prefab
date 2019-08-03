@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8210411659518051408}
   - component: {fileID: 8210411659518051409}
   - component: {fileID: 2390687640066872522}
+  - component: {fileID: -9027599094173039903}
   m_Layer: 0
   m_Name: Planet
   m_TagString: planet
@@ -106,8 +107,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b749a1647bdf714d90ca2af7ab674a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravityPower: 0
-  gravityRange: 0
+  gravityPower: 12
+  gravityRange: 30
+--- !u!114 &-9027599094173039903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8210411659518051410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dba6471429578354690f691c89831fcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uvSpeed: 1
+  Circles: {fileID: 4145463289157247883}
 --- !u!1001 &5379068116014512770
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -197,6 +212,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 0f5f3fce72a1ae746822cbaed62a2f98, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9370545965d530842bd564971076a119, type: 3}
+--- !u!1 &4145463289157247883 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 9370545965d530842bd564971076a119,
+    type: 3}
+  m_PrefabInstance: {fileID: 5379068116014512770}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1143066844755988888 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 9370545965d530842bd564971076a119,

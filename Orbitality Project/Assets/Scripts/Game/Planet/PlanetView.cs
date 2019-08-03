@@ -7,7 +7,8 @@ public class PlanetView : MonoBehaviour
     public event System.Action<int> OnDamageEvent;
 
     
-    public float uvSpeed = 1f;
+    private float uvSpeed = 1f;
+    private float circlesSpeed = 1f;
 
     
 
@@ -22,6 +23,7 @@ public class PlanetView : MonoBehaviour
     void Start()
     {
         uvSpeed = (Random.value - 0.5f) * 2;
+        circlesSpeed = (Random.value - 0.5f) * 100;
 
         material = GetComponent<MeshRenderer>().material;
         material.color = new Color(Random.value, Random.value, Random.value);
@@ -47,6 +49,9 @@ public class PlanetView : MonoBehaviour
         mainTextureOffset.x +=  uvSpeed * Time.deltaTime;
 
         material.SetTextureOffset("_DetailAlbedoMap", mainTextureOffset);
+
+        if (Circles)
+            Circles.transform.Rotate(Vector3.up, circlesSpeed * Time.deltaTime);
     }
 
     public void Damage(int damage)

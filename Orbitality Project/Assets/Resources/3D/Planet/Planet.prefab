@@ -121,7 +121,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dba6471429578354690f691c89831fcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uvSpeed: 1
   Circles: {fileID: 4145463289157247883}
 --- !u!1001 &5379068116014512770
 PrefabInstance:
@@ -153,7 +152,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 9370545965d530842bd564971076a119,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 9370545965d530842bd564971076a119,
         type: 3}
@@ -163,12 +162,12 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 9370545965d530842bd564971076a119,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 9370545965d530842bd564971076a119,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 9370545965d530842bd564971076a119,
         type: 3}
@@ -198,12 +197,12 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 9370545965d530842bd564971076a119,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 9370545965d530842bd564971076a119,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: 9370545965d530842bd564971076a119,
         type: 3}

@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {
+    public static Game Instance { get; private set; }
 
-    private static Game instance;
-
+    public GameStarter GameStarter { get; protected set; }
 
     void Awake()
     {
 
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
         else
         {
@@ -31,7 +31,7 @@ public class Game : MonoBehaviour
 
     private void Init()
     {
-
+        GameStarter = new GameStarter();
     }
     
 
@@ -45,11 +45,5 @@ public class Game : MonoBehaviour
         Time.timeScale = pause ? 0 : 1;
     }
 
-    public static Game Instance
-    {
-        get
-        {
-            return instance;
-        }
-    }
+    
 }

@@ -13,7 +13,9 @@ public class UIMainMenu : MonoBehaviour
 
     [SerializeField]
     private Button quitButton;
-    
+
+    [SerializeField]
+    GameObject singlePlayerDialogPrefab;
 
     private void Start()
     {
@@ -25,7 +27,7 @@ public class UIMainMenu : MonoBehaviour
 
     public void OnPlayClick()
     {
-        
+        Instantiate(singlePlayerDialogPrefab, transform);
     }
 
     public void OnLoadClick()

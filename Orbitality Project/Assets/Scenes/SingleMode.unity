@@ -1782,6 +1782,8 @@ MonoBehaviour:
   uiPlayerHUD: {fileID: 2572555186485029272}
   pauseDialogPrefab: {fileID: 8015964845895243920, guid: 116f0d14aca6c1a428edbfae8fb1cb1a,
     type: 3}
+  resultsDialogPrefab: {fileID: 6941417186812287796, guid: cc53e29361fca2f4e81913c7a384e962,
+    type: 3}
   hudContainerTransform: {fileID: 6383925581533141376}
 --- !u!222 &6383925582263323840
 CanvasRenderer:

@@ -68,6 +68,13 @@ public class SingleModeController : MonoBehaviour, IGameModeController
     {
         PlanetList.Remove(planetController);
         Destroy(planetController.PlanetView.gameObject);
+
+
+        if (planetController == PlayerPlanetController.PlanetController)
+            uiGame.ShowResults(false);
+
+        if (PlanetList.Count == 1 && PlanetList[0] == PlayerPlanetController.PlanetController)
+            uiGame.ShowResults(true);
     }
 
     private void Update()

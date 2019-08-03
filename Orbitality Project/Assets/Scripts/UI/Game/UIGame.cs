@@ -10,6 +10,9 @@ public class UIGame : MonoBehaviour
     [SerializeField]
     UIPlayerHUD uiPlayerHUD;
 
+    [SerializeField]
+    GameObject pauseDialogPrefab;
+
     public Transform hudContainerTransform;
 
     public SingleModeController SingleModeController { get; set; }
@@ -23,6 +26,8 @@ public class UIGame : MonoBehaviour
     private void OnPause()
     {
         Game.Instance.Pause(true);
+        GameObject uiPauseDialogGO = Instantiate(pauseDialogPrefab, transform);
+        uiPauseDialogGO.GetComponent<UIPauseDialog>().UIGame = this;
     }
 
     public UIPlayerHUD UIPlayerHUD

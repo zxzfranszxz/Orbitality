@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: LightRocketSO
   m_EditorClassIdentifier: 
   damage: 10
-  acceleration: 10
-  weight: 2
+  acceleration: 20
+  weight: 1
   cooldown: 2

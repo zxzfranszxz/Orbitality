@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e52e5050a8eb04b85d52a730cb36ce, type: 3}
   m_Name: HeavyRocketSO
   m_EditorClassIdentifier: 
-  damage: 10
-  acceleration: 10
-  weight: 2
-  cooldown: 2
+  damage: 30
+  acceleration: 30
+  weight: 3
+  cooldown: 4

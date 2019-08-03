@@ -76,6 +76,7 @@ public class SingleModeController : MonoBehaviour, IGameModeController
     private void SetPlayerPlanet(PlanetController planetController)
     {
         PlayerPlanetController.PlanetController = planetController;
+        uiGame.UIPlayerHUD.SetPlayerPlanetController(PlayerPlanetController);
     }
 
 

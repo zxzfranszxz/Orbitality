@@ -7,6 +7,9 @@ public class UIGame : MonoBehaviour
     [SerializeField]
     Button pauseButton;
 
+    [SerializeField]
+    UIPlayerHUD uiPlayerHUD;
+
     public Transform hudContainerTransform;
 
     public SingleModeController SingleModeController { get; set; }
@@ -20,6 +23,11 @@ public class UIGame : MonoBehaviour
     private void OnPause()
     {
         Game.Instance.Pause(true);
+    }
+
+    public UIPlayerHUD UIPlayerHUD
+    {
+        get { return uiPlayerHUD; }
     }
 
 }

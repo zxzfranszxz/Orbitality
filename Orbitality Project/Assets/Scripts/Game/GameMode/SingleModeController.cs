@@ -14,7 +14,8 @@ public class SingleModeController : MonoBehaviour, IGameModeController
 
 
     public List<PlanetController> PlanetList { get; } = new List<PlanetController>();
-    
+
+    public AIController AIController { get; protected set; }
 
     void Start()
     {
@@ -25,6 +26,7 @@ public class SingleModeController : MonoBehaviour, IGameModeController
     private void Init()
     {
         PlayerPlanetController = new PlayerPlanetController();
+        AIController = new AIController(this);
 
         StartNewGame(Game.Instance.GameStarter.SinglePlayerMode.Enemies + 1);
 
@@ -36,6 +38,7 @@ public class SingleModeController : MonoBehaviour, IGameModeController
             if (planetController.PlanetModel.Id != PlayerPlanetController.PlanetController.PlanetModel.Id)
             {
                 uiPlanetHUD.SetHPColor(Color.red);
+                AIController.CreateAIPlanetController(planetController);
             }
         }
 
@@ -71,6 +74,8 @@ public class SingleModeController : MonoBehaviour, IGameModeController
     {
         foreach (PlanetController planetController in PlanetList)
             planetController.Update();
+
+        AIController.Update();
     }
 
     private void SetPlayerPlanet(PlanetController planetController)

@@ -35,6 +35,20 @@ public class PlanetModel
         Angle += 2 * Mathf.PI * Random.value;
     }
 
+    public PlanetModel(PlanetModelSave modelSave, RocketSO rocketSO)
+    {
+        RocketSO = rocketSO;
+
+        Id = modelSave.id;
+        HP = modelSave.hp;
+        MaxHP = modelSave.maxHP;
+        OrbitRadius = modelSave.orbitRadius;
+        IsAlive = modelSave.isAlive;
+        Angle = modelSave.angle;
+
+        TimeToReload = modelSave.timeToReload;
+    }
+
     public void Update()
     {
         if (TimeToReload > 0)

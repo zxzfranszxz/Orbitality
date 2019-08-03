@@ -26,6 +26,9 @@ public class UIPauseDialog : MonoBehaviour
         saveButton.onClick.AddListener(OnSaveClick);
         loadButton.onClick.AddListener(OnLoadClick);
         quitButton.onClick.AddListener(OnQuitClick);
+
+        loadButton.interactable = game.SaveManager.IsSaveAvaliable;
+        saveButton.interactable = UIGame.SingleModeController.PlayerPlanetController.PlanetController.PlanetModel.IsAlive;
     }
 
     public void OnResumeClick()
@@ -39,12 +42,23 @@ public class UIPauseDialog : MonoBehaviour
     public void OnSaveClick()
     {
         ClickSound.Click();
+
+        if (UIGame && UIGame.SingleModeController)
+        {
+            int playerPlanetId = UIGame.SingleModeController.PlayerPlanetController.PlanetController.PlanetModel.Id;
+
+            game.SaveManager.Save(UIGame.SingleModeController.PlanetList, playerPlanetId);
+        }
+
+        OnResumeClick();
     }
 
     public void OnLoadClick()
     {
         ClickSound.Click();
 
+        game.Pause(false);
+        game.GameStarter.LoadGame();
     }
 
     public void OnQuitClick()

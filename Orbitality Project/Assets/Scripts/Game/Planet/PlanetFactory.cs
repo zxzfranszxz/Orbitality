@@ -36,4 +36,19 @@ public class PlanetFactory
         countId++;
         return planetController;
     }
+
+    public PlanetController CreatePlanet(PlanetModelSave modelSave)
+    {
+        RocketSO rocketSO = rocketSOList.Find(p => p.name == modelSave.rocketSOName);
+        PlanetModel planetModel = new PlanetModel(modelSave, rocketSO);
+
+
+        GameObject planetGO = GameObject.Instantiate(planetRef, parentT);
+        PlanetView planetView = planetGO.GetComponent<PlanetView>();
+        planetView.PlanetModel = planetModel;
+
+
+        PlanetController planetController = new PlanetController(planetModel, planetView);
+        return planetController;
+    }
 }

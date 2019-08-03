@@ -7,6 +7,7 @@ public class Game : MonoBehaviour
     public static Game Instance { get; private set; }
 
     public GameStarter GameStarter { get; protected set; }
+    public SaveManager SaveManager { get; protected set; }
 
     void Awake()
     {
@@ -32,6 +33,7 @@ public class Game : MonoBehaviour
     private void Init()
     {
         GameStarter = new GameStarter();
+        SaveManager = new SaveManager();
     }
     
 

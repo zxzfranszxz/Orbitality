@@ -19,7 +19,7 @@ public class SingleModeController : MonoBehaviour, IGameModeController
 
     void Start()
     {
-
+        uiGame.SingleModeController = this;
         Init();
     }
 
@@ -28,7 +28,10 @@ public class SingleModeController : MonoBehaviour, IGameModeController
         PlayerPlanetController = new PlayerPlanetController();
         AIController = new AIController(this);
 
-        StartNewGame(Game.Instance.GameStarter.SinglePlayerMode.Enemies + 1);
+        if (Game.Instance.GameStarter.SingleModeSave == null)
+            StartNewGame(Game.Instance.GameStarter.SinglePlayerMode.Enemies + 1);
+        else
+            StartLoadedGame(Game.Instance.GameStarter.SingleModeSave);
 
         UIPlanetHUDFactory uiPlanetHUDFactory = new UIPlanetHUDFactory(uiGame.hudContainerTransform);
 
@@ -56,7 +59,20 @@ public class SingleModeController : MonoBehaviour, IGameModeController
 
         SetPlayerPlanet(PlanetList[Random.Range(0, PlanetList.Count)]);
     }
-    
+
+    private void StartLoadedGame(SingleModeSave singleModeSave)
+    {
+        PlanetFactory planetFactory = new PlanetFactory(spaceContainerTransform);
+
+        foreach (PlanetModelSave modelSave in singleModeSave.planetModelSaveList)
+        {
+            PlanetController planetController = planetFactory.CreatePlanet(modelSave);
+            InitPlanet(planetController);
+        }
+
+        PlanetController playerPlanetController = PlanetList.Find(p => p.PlanetModel.Id == singleModeSave.playerPlanetId);
+        SetPlayerPlanet(playerPlanetController);
+    }
 
     private void InitPlanet(PlanetController planetController)
     {

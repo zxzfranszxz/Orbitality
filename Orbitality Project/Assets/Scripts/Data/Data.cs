@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Data
 {
+    public const string saveName = "SingleMode";
+
     public const int planetMaxHP = 100;
     public const int minOrbitRadius = 20;
     public const int orbitStep = 4;

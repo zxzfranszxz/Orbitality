@@ -22,7 +22,8 @@ public class UIMainMenu : MonoBehaviour
         playButton.onClick.AddListener(OnPlayClick);
         loadButton.onClick.AddListener(OnLoadClick);
         quitButton.onClick.AddListener(OnQuitClick);
-        
+
+        loadButton.interactable = Game.Instance.SaveManager.IsSaveAvaliable;
     }
 
     public void OnPlayClick()
@@ -34,6 +35,7 @@ public class UIMainMenu : MonoBehaviour
     public void OnLoadClick()
     {
         ClickSound.Click();
+        Game.Instance.GameStarter.LoadGame();
     }
 
     public void OnQuitClick()

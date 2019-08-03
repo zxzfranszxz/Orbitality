@@ -27,6 +27,8 @@ public class UIRangeComponentWithButtons : MonoBehaviour
 
     private void OnMinusClick()
     {
+        ClickSound.Click();
+
         value--;
         if (OnChangeValueHandler != null)
             OnChangeValueHandler.Invoke(value);
@@ -34,6 +36,8 @@ public class UIRangeComponentWithButtons : MonoBehaviour
 
     private void OnPlusClick()
     {
+        ClickSound.Click();
+
         value++;
         if (OnChangeValueHandler != null)
             OnChangeValueHandler.Invoke(value);

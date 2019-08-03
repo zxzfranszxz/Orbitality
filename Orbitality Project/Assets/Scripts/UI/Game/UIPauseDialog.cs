@@ -30,22 +30,27 @@ public class UIPauseDialog : MonoBehaviour
 
     public void OnResumeClick()
     {
+        ClickSound.Click();
+
         game.Pause(false);
         Destroy(gameObject);
     }
 
     public void OnSaveClick()
     {
-
+        ClickSound.Click();
     }
 
     public void OnLoadClick()
     {
+        ClickSound.Click();
 
     }
 
     public void OnQuitClick()
     {
+        ClickSound.Click();
+
         game.Pause(false);
         SceneManager.LoadScene("MainMenu");
     }

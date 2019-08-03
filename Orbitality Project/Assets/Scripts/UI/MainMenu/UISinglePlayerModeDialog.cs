@@ -72,11 +72,15 @@ public class UISinglePlayerModeDialog : MonoBehaviour
     
     public void OnPlayClick()
     {
+        ClickSound.Click();
+
         Game.Instance.GameStarter.StartGame(new SinglePlayerMode(minEnemies, maxEnemies));
     }
 
     public void OnBackClick()
     {
+        ClickSound.Click();
+
         Destroy(gameObject);
     }
 

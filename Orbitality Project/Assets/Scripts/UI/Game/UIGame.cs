@@ -25,6 +25,8 @@ public class UIGame : MonoBehaviour
 
     private void OnPause()
     {
+        ClickSound.Click();
+
         Game.Instance.Pause(true);
         GameObject uiPauseDialogGO = Instantiate(pauseDialogPrefab, transform);
         uiPauseDialogGO.GetComponent<UIPauseDialog>().UIGame = this;

@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class SingleModeController : MonoBehaviour, IGameModeController
 {
+    [SerializeField]
+    private UIGame uiGame;
 
     [SerializeField]
     private Transform spaceContainerTransform;
@@ -25,7 +27,18 @@ public class SingleModeController : MonoBehaviour, IGameModeController
         PlayerPlanetController = new PlayerPlanetController();
 
         StartNewGame(Game.Instance.GameStarter.SinglePlayerMode.Enemies + 1);
-        
+
+        UIPlanetHUDFactory uiPlanetHUDFactory = new UIPlanetHUDFactory(uiGame.hudContainerTransform);
+
+        foreach (PlanetController planetController in PlanetList)
+        {
+            UIPlanetHUD uiPlanetHUD = uiPlanetHUDFactory.CreatePlanetHUD(planetController);
+            if (planetController.PlanetModel.Id != PlayerPlanetController.PlanetController.PlanetModel.Id)
+            {
+                uiPlanetHUD.SetHPColor(Color.red);
+            }
+        }
+
     }
 
     private void StartNewGame(int planets)

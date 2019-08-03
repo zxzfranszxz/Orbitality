@@ -9,4 +9,5 @@ public class Data
     public const int planetSize = 4;
     public const int planetSpeed = 20;
 
+    public static readonly Vector3 planetHUDOffset = new Vector3(0, 40, 0);
 }

@@ -33,7 +33,7 @@ public class UIPauseDialog : MonoBehaviour
 
     public void OnResumeClick()
     {
-        ClickSound.Click();
+        SoundManager.Instance.PlaySingle(SoundManager.Instance.AudioClipManager.ButtonAC);
 
         game.Pause(false);
         Destroy(gameObject);
@@ -41,7 +41,7 @@ public class UIPauseDialog : MonoBehaviour
 
     public void OnSaveClick()
     {
-        ClickSound.Click();
+        SoundManager.Instance.PlaySingle(SoundManager.Instance.AudioClipManager.ButtonAC);
 
         if (UIGame && UIGame.SingleModeController)
         {
@@ -55,7 +55,7 @@ public class UIPauseDialog : MonoBehaviour
 
     public void OnLoadClick()
     {
-        ClickSound.Click();
+        SoundManager.Instance.PlaySingle(SoundManager.Instance.AudioClipManager.ButtonAC);
 
         game.Pause(false);
         game.GameStarter.LoadGame();
@@ -63,7 +63,7 @@ public class UIPauseDialog : MonoBehaviour
 
     public void OnQuitClick()
     {
-        ClickSound.Click();
+        SoundManager.Instance.PlaySingle(SoundManager.Instance.AudioClipManager.ButtonAC);
 
         game.Pause(false);
         SceneManager.LoadScene("MainMenu");

@@ -13,13 +13,16 @@ public class Rocket : MonoBehaviour
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
+
         
-        //rigidBody.maxAngularVelocity = 4f;
     }
 
     private void Start()
     {
         rigidBody.velocity = transform.forward * Data.planetSpeed * (rocketSO.Acceleration / 10f);
+
+        SoundManager.Instance.PlaySingle(SoundManager.Instance.AudioClipManager.RocketLaunchAC);
+        
     }
 
     public RocketSO RocketSO

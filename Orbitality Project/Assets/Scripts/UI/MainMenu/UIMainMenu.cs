@@ -28,19 +28,19 @@ public class UIMainMenu : MonoBehaviour
 
     public void OnPlayClick()
     {
-        ClickSound.Click();
+        SoundManager.Instance.PlaySingle(SoundManager.Instance.AudioClipManager.ButtonAC);
         Instantiate(singlePlayerDialogPrefab, transform);
     }
 
     public void OnLoadClick()
     {
-        ClickSound.Click();
+        SoundManager.Instance.PlaySingle(SoundManager.Instance.AudioClipManager.ButtonAC);
         Game.Instance.GameStarter.LoadGame();
     }
 
     public void OnQuitClick()
     {
-        ClickSound.Click();
+        SoundManager.Instance.PlaySingle(SoundManager.Instance.AudioClipManager.ButtonAC);
         Game.Instance.Quit();
     }
 }

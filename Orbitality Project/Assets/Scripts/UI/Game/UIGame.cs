@@ -29,7 +29,7 @@ public class UIGame : MonoBehaviour
 
     private void OnPause()
     {
-        ClickSound.Click();
+        SoundManager.Instance.PlaySingle(SoundManager.Instance.AudioClipManager.ButtonAC);
 
         Game.Instance.Pause(true);
         GameObject uiPauseDialogGO = Instantiate(pauseDialogPrefab, transform);

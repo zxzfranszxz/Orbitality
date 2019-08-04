@@ -27,7 +27,7 @@ public class UIRangeComponentWithButtons : MonoBehaviour
 
     private void OnMinusClick()
     {
-        ClickSound.Click();
+        SoundManager.Instance.PlaySingle(SoundManager.Instance.AudioClipManager.ButtonAC);
 
         value--;
         if (OnChangeValueHandler != null)
@@ -36,7 +36,7 @@ public class UIRangeComponentWithButtons : MonoBehaviour
 
     private void OnPlusClick()
     {
-        ClickSound.Click();
+        SoundManager.Instance.PlaySingle(SoundManager.Instance.AudioClipManager.ButtonAC);
 
         value++;
         if (OnChangeValueHandler != null)

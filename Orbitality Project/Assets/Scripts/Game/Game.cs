@@ -34,6 +34,8 @@ public class Game : MonoBehaviour
     {
         GameStarter = new GameStarter();
         SaveManager = new SaveManager();
+
+        new  GameObject("SoundManager").AddComponent<SoundManager>();
     }
     
 

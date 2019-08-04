@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
+
 public class SoundManager : MonoBehaviour
 {
-    public AudioSource EfxSource { get; protected set; }
-
     public static SoundManager Instance { get; protected set; }
 
     public AudioClipManager AudioClipManager { get; protected set; }
+
+    private List<AudioSource> SingleAudioSourceList;
 
     void Awake()
     {
@@ -18,18 +18,32 @@ public class SoundManager : MonoBehaviour
         else
             Destroy(gameObject);
 
-        EfxSource = GetComponent<AudioSource>();
+        
 
         AudioClipManager = new AudioClipManager();
-
-        EfxSource.playOnAwake = false;
+        SingleAudioSourceList = new List<AudioSource>();
 
         DontDestroyOnLoad(gameObject);
     }
 
+
+
+    private void Update()
+    {
+        foreach(AudioSource audioSource in SingleAudioSourceList)
+        {
+            if (!audioSource.isPlaying)
+                Destroy(audioSource);
+        }
+        SingleAudioSourceList.RemoveAll(p => p.isPlaying == false);
+    }
+
     public void PlaySingle(AudioClip clip)
     {
-        EfxSource.clip = clip;
-        EfxSource.Play();
+        AudioSource audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.clip = clip;
+        audioSource.loop = false;
+        audioSource.Play();
+        SingleAudioSourceList.Add(audioSource);
     }
 }

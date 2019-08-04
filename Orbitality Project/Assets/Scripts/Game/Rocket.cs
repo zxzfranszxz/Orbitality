@@ -4,11 +4,14 @@ using System.Collections;
 
 public class Rocket : MonoBehaviour
 {
+    public GameObject explosionFX;
+
     private RocketSO rocketSO;
 
     Rigidbody rigidBody;
 
     float timeToDeath = 10;
+
 
     void Awake()
     {
@@ -47,12 +50,18 @@ public class Rocket : MonoBehaviour
 
         timeToDeath -= Time.deltaTime;
         if (timeToDeath < 0)
+        {
+            CreateExplosion(transform.parent);
             Destroy(gameObject);
+        }
+            
 
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        Transform fxParentTransform = transform.parent;
+
         if(collision.gameObject.tag == "planet")
         {
             PlanetView planetView = collision.gameObject.GetComponent<PlanetView>();
@@ -60,11 +69,20 @@ public class Rocket : MonoBehaviour
             {
                 planetView.Damage(rocketSO.Damage);
             }
+
+            fxParentTransform = collision.transform;
         }
-        if (collision.gameObject.tag == "rocket")
+        else if (collision.gameObject.tag == "rocket")
             return;
 
+
+        CreateExplosion(fxParentTransform);
         Destroy(gameObject);
+    }
+
+    private void CreateExplosion(Transform parent)
+    {
+        Instantiate(explosionFX, transform.position, transform.rotation, parent);
     }
 
 

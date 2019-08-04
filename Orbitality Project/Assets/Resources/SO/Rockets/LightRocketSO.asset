@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   acceleration: 20
-  weight: 1
+  weight: 1.5
   cooldown: 2

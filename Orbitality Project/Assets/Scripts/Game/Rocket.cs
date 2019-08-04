@@ -22,7 +22,7 @@ public class Rocket : MonoBehaviour
 
     private void Start()
     {
-        rigidBody.velocity = transform.forward * Data.planetSpeed * (rocketSO.Acceleration / 10f);
+        rigidBody.velocity = transform.forward * Data.planetSpeed * (rocketSO.Acceleration / 8f);
 
         SoundManager.Instance.PlaySingle(SoundManager.Instance.AudioClipManager.RocketLaunchAC);
         
